@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Channel Search</title>
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <header>
+        <div class="icon-title">
+            <i class="fa fa-play-circle"></i>
+            <h1>Channel <span>Search</span></h1>
+        </div>
+        <div class="filter-bar">
+            <p>Search for videos about programming from popular YouTube channels</p>
+            <div class="d-flex">
+                <div class="wrapper">
+                    <div class="select-btn">
+                        <span id="channel-picker">
+                            <div data-idChannel="nope">
+                                <img src="./youtube-icon.png" alt=""> 
+                                YouTube
+                            </div>
+                        </span>
+                        <i class="fa fa-angle-up"></i>
+                    </div>
+                    <div class="content">
+                        <ul class="options">
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-video">
+                    <input id="search-video-input" type="text" placeholder="Search video">
+                    <button id="search-video-btn"><i class="fa fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="add-channel-from-link">
+                    <input type="text" placeholder="Add Channel from link">
+                    <button id="add-channel-link"><i class="fa fa-arrow-right"></i></button>
+                </div>
+                <div class="add-channel">
+                    <input type="text" placeholder="Add Channel from text">
+                    <button id="add-channel-text"><i class="fa fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <button class="your-channel" id="your-channel">Your channel list</button>
+        </div>
+    </header>
+
+    <main class="default">
+        <h3 id="inform-user"></h3>
+        <h2 id="search-text"></h2>
+        <div class="video">
+        </div>
+        <div class="channel-list">
+        </div>
+    </main>
+
+    <!-- js -->
+    <script src="./index.js"></script>
+</body>
+
+</html>
+
