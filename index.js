@@ -61,7 +61,7 @@ function convertSubscriber(subscriberCount) {
     } else if (subscriberCount >= thousand) {
         return formatNumber(subscriberCount / thousand, 1) + 'K';
     } else {
-        return subscriberCount.toString();
+        return subscriberCount;
     }
 }
 
