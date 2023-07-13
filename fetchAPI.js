@@ -2,6 +2,7 @@ const apiKey = 'AIzaSyAPhbejNr-9Kq1Y1idaJhF3yTSEtNEgfp4';
 const endpoint = "https://www.googleapis.com/youtube/v3"
 const channelParts = 'snippet,statistics';
 const videoParts = 'snippet';
+const maxResults = 6;
 
 async function fetchChannel(id) {
     const response = await fetch(`${endpoint}/channels?part=${channelParts}&id=${id}&key=${apiKey}`);
@@ -24,8 +25,6 @@ async function fetchVideo(id) {
 }
 
 async function fetchVideoList(idChannel, searchQuery) {
-    const maxResults = 6;
-
     let url = `${endpoint}/search?key=${apiKey}&q=${searchQuery}&maxResults=${maxResults}&type=video&channelId=${idChannel}&part=${videoParts}`;
     if (idChannel === "nope") {
         url = `${endpoint}/search?key=${apiKey}&q=${searchQuery}&maxResults=${maxResults}&type=video&part=${videoParts}`;
@@ -61,7 +60,7 @@ async function fetchVideoStatistics(videoId) {
 }
 
 async function fetchSearchChannelQuery(query) {
-    const url = `${endpoint}/search?part=snippet&maxResults=6&q=${query}&type=channel&key=${apiKey}`;
+    const url = `${endpoint}/search?part=snippet&maxResults=${maxResults}&q=${query}&type=channel&key=${apiKey}`;
 
     try {
         const response = await fetch(url);

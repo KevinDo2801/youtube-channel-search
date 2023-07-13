@@ -113,21 +113,27 @@ async function getVideoListHtml(idChannel, searchQuery) {
         html += `
             <section>
                 <div class="thumbnail">
-                <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">
-                    <div class="image-container">
-                        <img src="${video.snippet.thumbnails.default.url}" alt="">
+                    <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">
+                        <div class="image-container">
+                            <img src="${video.snippet.thumbnails.default.url}" alt="">
                             <i class="fa fa-play-circle"></i>
-                            </div>
-                            </a>
+                        </div>
+                    </a>
                 </div>
                 <div class="information">
-                    <div class="channel-img">
-                        <img src="${channel.snippet.thumbnails.default.url}" alt="">
-                    </div>
+                    <a href="https://www.youtube.com/${channel.snippet.customUrl}" target="_blank">
+                        <div class="channel-img">
+                            <img src="${channel.snippet.thumbnails.default.url}" alt="">
+                        </div>
+                    </a>
                     <div class="detail">
-                        <h4>${video.snippet.title}</h4>
-                        <div class="channel-add">
+                        <a href="https://www.youtube.com/watch?v=${video.id.videoId}" target="_blank">
+                            <h4>${video.snippet.title}</h4>
+                        </a>
+                    <div class="channel-add">
+                        <a href="https://www.youtube.com/${channel.snippet.customUrl}" target="_blank">
                             <p>${channel.snippet.title}</p>
+                        </a>    
                             <p data-addChannel=${video.snippet.channelId}>${iconAdd}</p>
                         </div>
                         <p>${countView} views</p>
@@ -153,21 +159,27 @@ async function getVideoHtml(url) {
         let html = `
         <section>
             <div class="thumbnail">
-            <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank">
-                <div class="image-container">
-                    <img src="${video.snippet.thumbnails.default.url}" alt="">
+                <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank">
+                    <div class="image-container">
+                        <img src="${video.snippet.thumbnails.default.url}" alt="">
                         <i class="fa fa-play-circle"></i>
-                        </div>
-                        </a>
+                    </div>
+                </a>
             </div>
             <div class="information">
-                <div class="channel-img">
-                    <img src="${channel.snippet.thumbnails.default.url}" alt="">
-                </div>
+                <a href="https://www.youtube.com/${channel.snippet.customUrl}" target="_blank">
+                    <div class="channel-img">
+                        <img src="${channel.snippet.thumbnails.default.url}" alt="">
+                    </div>
+                </a>
                 <div class="detail">
-                    <h4>${video.snippet.title}</h4>
+                    <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank">
+                        <h4>${video.snippet.title}</h4>
+                    </a>
                     <div class="channel-add">
-                        <p>${channel.snippet.title}</p>
+                        <a href="https://www.youtube.com/${channel.snippet.customUrl}" target="_blank">
+                            <p>${channel.snippet.title}</p>
+                        </a>
                         <p data-addChannel=${video.snippet.channelId}>${iconAdd}</p>
                     </div>
                     <p>${countView} views</p>

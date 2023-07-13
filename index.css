@@ -347,7 +347,7 @@ main h2 {
     transition: opacity 0.3s ease;
 }
 
-.video section .thumbnail:hover .image-container::after{
+.video section .thumbnail:hover .image-container{
     opacity: 1;
 }
 
