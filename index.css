@@ -99,7 +99,14 @@ header .filter-bar p {
     margin-bottom: 1rem;
 }
 
-/* ------------------------------------- */
+.alert-text{
+    color: red;
+    font-weight: bold;
+    display: none;
+    text-align: center;
+}
+
+/* wrapper */
 
 .wrapper {
     background: var(--white, #FFF);
@@ -119,7 +126,7 @@ li {
 
     font-size: 1rem;
     font-weight: 400;
-    padding: .4rem;
+    padding: .27rem;
 
     display: flex;
     align-items: center;
