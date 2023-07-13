@@ -1,6 +1,4 @@
-import {apiKey, endpoint} from "./utilities.js"
-const channelParts = 'snippet,statistics';
-const videoParts = 'snippet';
+import {apiKey, endpoint, channelParts, videoParts} from "./utilities.js"
 
 async function fetchChannel(id) {
     try {
