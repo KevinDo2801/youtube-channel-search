@@ -144,17 +144,11 @@ async function getVideoHtml(url) {
     const videoId = getVideoId(url);
 
     try {
-        const video = fetchVideo(videoId);
+        const video = await fetchVideo(videoId);
         const channel = await fetchChannel(video.snippet.channelId);
         const videoStatistics = await fetchVideoStatistics(video.id);
         const countView = convertNumber(videoStatistics);
-
-        let iconAdd = '';
-        if (!defaultChannelList.includes(video.snippet.channelId)) {
-            iconAdd = `<i class="fa fa-plus-circle"></i> Add channel`
-        } else {
-            iconAdd = `<i class="fa fa-minus-circle"></i> Remove`
-        }
+        let iconAdd = iconAddChange(video.snippet.channelId);
 
         let html = `
         <section>

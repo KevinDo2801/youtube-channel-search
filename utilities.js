@@ -1,7 +1,5 @@
-const apiKey = 'AIzaSyCEljhRWv33r88Dg9nV5XFqBNYPGqOqdGw';
-const endpoint = "https://www.googleapis.com/youtube/v3"
-const channelParts = 'snippet,statistics';
-const videoParts = 'snippet';
+const apiKey = 'AIzaSyAPhbejNr-9Kq1Y1idaJhF3yTSEtNEgfp4';
+
 let defaultChannelList = [
     "UCNW7HDseZb6N3nKUEP6uLag",
     "UCxX9wt5FWQUAAz4UrysqK9A",
@@ -86,4 +84,4 @@ function formatNumber(number, decimalPlaces) {
     return fixedNumber;
 }
 
-export { convertNumber, getUserName, getVideoId, getChannelId, identifyVideoLink, identifyChannelLink, apiKey, endpoint, channelParts, videoParts, defaultChannelList }
+export { convertNumber, getUserName, getVideoId, getChannelId, identifyVideoLink, identifyChannelLink, defaultChannelList }
