@@ -1,4 +1,4 @@
-const apiKey = 'AIzaSyAPhbejNr-9Kq1Y1idaJhF3yTSEtNEgfp4';
+import {fetchChannelIdByUserName} from "./fetchAPI.js"
 
 let defaultChannelList = [
     "UCNW7HDseZb6N3nKUEP6uLag",
@@ -32,17 +32,14 @@ async function getChannelId(url) {
     let path = (new URL(url)).pathname;
     let pathSegments = path.split("/");
     let channelId = null;
-    if(pathSegments.includes("channel")){
+    if (pathSegments.includes("channel")) {
         channelId = pathSegments[pathSegments.indexOf("channel") + 1];
     } else {
         let customUserName = getUserName(url);
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${customUserName}&type=channel&key=${apiKey}`);
-        const data = await response.json();
-        channelId = data.items[0].id.channelId;
-    }   
+        channelId = await fetchChannelIdByUserName(customUserName);
+    }
     return channelId;
 }
-
 
 function identifyVideoLink(url) {
     let videoRegex = /(https?:\/\/www\.youtube\.com\/watch\?v=)([a-zA-Z0-9_-]*)/;

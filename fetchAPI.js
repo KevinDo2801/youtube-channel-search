@@ -75,4 +75,11 @@ async function fetchSearchChannelQuery(query) {
     }
 }
 
-export { fetchChannel, fetchChannelList, fetchVideo, fetchVideoList, fetchVideoStatistics, fetchSearchChannelQuery }
+async function fetchChannelIdByUserName(customUserName) {
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${customUserName}&type=channel&key=${apiKey}`);
+    const data = await response.json();
+    const channelId = data.items[0].id.channelId;
+    return channelId;
+}
+
+export { fetchChannel, fetchChannelList, fetchVideo, fetchVideoList, fetchVideoStatistics, fetchSearchChannelQuery, fetchChannelIdByUserName }
